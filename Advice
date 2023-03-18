@@ -1,0 +1,22 @@
+import  java.util.Scanner;
+public class Advice {
+    public static void main(String[] args) {
+        Scanner input =new Scanner(System.in);
+        System.out.println("Hello friend wellcome to my advice page");
+        System.out.println("please enter temperature of weather for  i can give you the best advice");
+        int heat;
+        heat=input.nextInt();
+        if(heat<5) System.out.println("you can snowbord");
+        else if (heat<=15 && heat>=10) {
+            System.out.println("you can go to picnic  or cinema");
+            
+        } else if (heat>=5 && heat<=15) {
+            System.out.println("you can go to cinema");
+            
+        }
+        else{
+
+            System.out.println("you can go to picnic");
+        }
+    }
+}
