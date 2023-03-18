@@ -1,0 +1,49 @@
+import  java.util.Scanner;
+public class gradeAverage {
+    public static void main(String[] args) {
+        int mat,english,music,physics,chemistry;
+        Scanner input=new Scanner(System.in);
+        System.out.println("Please enter your grade of lessons.");
+        System.out.println("please range of your grade should be 0 to 100 ");
+        System.out.println("math : ");
+        mat=input.nextInt();
+        System.out.println("english : ");
+        english=input.nextInt();
+        System.out.println("music : ");
+        music=input.nextInt();
+        System.out.println("physics : ");
+        physics=input.nextInt();
+        System.out.println("chemistry : ");
+        chemistry=input.nextInt();
+        double average;
+        if(mat>100)
+            average =((float)english+physics+chemistry+music)/5;
+        else if (english>100) {
+            average =((float)mat+(float)physics+chemistry+music)/5;
+
+        } else if (chemistry>100) {
+            average =((float)mat+(float)english+physics+music)/5;
+
+        } else if (physics>100) {
+            average =((float)mat+(float)english+chemistry+music)/5;
+
+        } else if (music>100) {
+            average =((float)mat+(float)english+physics+chemistry)/5;
+
+        }
+        else {  average =((float)mat+(float)english+physics+chemistry+music)/5;}
+
+
+
+        if(average<50)
+        {
+            System.out.println("unfortunately you do not pass class \n your grade's average : "+average);
+
+        } else  {
+            System.out.println(" congratualations you passed class \nyour grade's average : "+average );
+        }
+
+    }
+
+
+}
