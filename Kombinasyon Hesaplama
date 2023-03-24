@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Faktoriel {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Lütfen kombinasyon almak için iki sayi giriniz.");
+        int sayi1,sayi2;
+        int faktoriel_sayi1=1,faktoriel_sayi2=1;
+        System.out.print("sayi bir: ");
+        sayi1=input.nextInt();
+        System.out.print("sayi iki: ");
+        sayi2=input.nextInt();
+        int x_faktoriel=1;
+
+        for(int i=1;i<=sayi1;i++){
+            faktoriel_sayi1*=i;
+        }
+        for(int i=1;i<=sayi2;i++){
+            faktoriel_sayi2*=i;
+        }
+        for(int i=1;i<=sayi1-sayi2;i++){
+          x_faktoriel*=i;
+        }
+
+
+        System.out.println("C("+sayi1+","+sayi2+")=" +faktoriel_sayi1/(faktoriel_sayi2*x_faktoriel));
+
+
+
+    }
+}
