@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class odev_bir_uc_ve_dordun_katlari {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen hangi sayıya kadar üç ve dordun katını almak istiyorsanız sayıyı giriniz.");
+        int sayi;
+        int toplam=0;
+        int sayac=0;
+        sayi=scan.nextInt();
+        for(int i=1;i<=sayi;i++){
+            if((i%3==0)&&(i%4==0)){
+                System.out.println("uc ve dorde bolunen bir tam sayıdır " +i);
+                toplam=toplam+i;
+                sayac++;
+
+            }
+        }
+        System.out.println("girdiginiz sayıya kadar toplam " +sayac+" adet sayı vardır");
+        System.out.println("uc ve dorde tam bolunen sayıların ortalması =" +(toplam/sayac));
+    }
+}
