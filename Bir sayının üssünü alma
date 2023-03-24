@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class uslu_sayilar {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen üssü alınacak sayıyı giriniz.");
+        int sayi= scan.nextInt();
+        System.out.println("Lütfen girdiginiz sayinin üssünü giriniz.");
+        int us=scan.nextInt();
+        int j=1;
+        for(int i=1;i<=us;i++){
+            j*=sayi;
+        }
+        System.out.println(j);
+    }
+}
