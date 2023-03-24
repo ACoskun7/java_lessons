@@ -1,0 +1,20 @@
+import java.util.Scanner;
+ public class tek_sayi_girilene_kadar_devam {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int sayi,toplam=0,sayac=0;
+        System.out.println("programımız tek sayı alana kadar devam edecektir çıkmak istediğinizde lütfen tek bir sayi girin.");
+
+        do{
+            System.out.println("Lütfen bir sayi giriniz(çift olursa sevinirim)");
+            sayi=scan.nextInt();
+            if(sayi%4==0){
+                toplam+=sayi;
+                sayac++;
+            }
+        }while (sayi%2==0);
+        System.out.println("Girdiginiz sayilarin içinde 4 ün katı olanların adedi" +sayac);
+        System.out.println("4 ün katı olanların aritmetik ortalaması ise " +(toplam/sayac));
+
+    }
+}
