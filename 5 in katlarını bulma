@@ -1,0 +1,12 @@
+import java.util.Scanner;
+public class Girilen_sayiya_kadar_5_katlari {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen bir sayi giriniz \n Not:program girilen sayıya kadar olan 5 in katlarını bastıracaktır.");
+        int sayi;
+        sayi=scan.nextInt();
+        for(int i=1;i<=sayi;i*=5){
+            System.out.println(i);
+        }
+        System.out.println("Programımız sonlanmıştır.");
+    }
