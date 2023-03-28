@@ -1,3 +1,14 @@
+/*Java'da döngüler kullanarak yıldızlar ile elmas yapınız.
+
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   *** 
+   */
 import java.util.Scanner;
 public class Yildiz_ile_elmas_yapma {
     public static void main(String[] args) {
