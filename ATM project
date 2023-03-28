@@ -1,0 +1,55 @@
+import java.util.Scanner;
+//Java döngüler ile kullanıcının banka hesabını yönetebildiği bir ATM projesi yapıyoruz.
+public class ATM_projesi {
+    public static void main(String[] args) {
+     Scanner scan=new Scanner(System.in);
+     String username,password;
+     int blance =2000;
+     int right =3;
+     int select;
+     while (right>0){
+
+         System.out.println("Please enter your username.");
+         username=scan.nextLine();
+         System.out.println("Please enter your password");
+         password=scan.nextLine();
+         if(username.equals("Ahmet")&& password.equals("ahmet1234")){
+             System.out.println("Welcome to your account of Ciftlik Bank please selec that what you want ");
+             System.out.println("1-take money\n2-deposit\n3-send money other account");
+             select=scan.nextInt();
+             switch (select){
+                 case 1:
+                     System.out.println("please enter how much you want take .");
+                     int take=scan.nextInt();
+                     blance =blance-take;
+                     System.out.println("you take "+take+" dolars and your new balance "+blance +" dolar");
+                     break;
+                 case 2:
+                     System.out.println("Please enter that how much you want desposit");
+                     int desposit=scan.nextInt();
+                     blance+=desposit;
+                     System.out.println("Your new blance "+blance+" dolars");
+                     break;
+                 case 3:
+                     System.out.println("Please enter your iban of account which you want to send money");
+                     int iban=scan.nextInt();
+                     System.out.println("Please enter how much you want to send money other account ");
+                     int money=scan.nextInt();
+                     blance-=money;
+                     System.out.println("your new blance "+blance+ " dolars");
+                     break;
+                 default :
+                     System.out.println("you select a wrong number");
+                     break;
+             }
+            break;
+         }
+         else {
+             right--;
+             System.out.println("Your username or password is wrong");
+             System.out.println("you have "+right +" chance");
+         }
+     }
+
+    }
+}
