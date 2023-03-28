@@ -1,0 +1,35 @@
+import java.util.Scanner;
+/*//Ödev - Ters Üçgen Yapımı
+Java ile basamak sayısının kullanıcıdan alınan ve döngüler kullanılarak, yıldızlar(*) ile ekrana ters üçgen çizen programı yazın.
+
+Örnek
+Basamak Sayısı : 10
+
+ *******************
+  *****************
+   ***************
+    *************
+     ***********
+      *********
+       *******
+        *****
+         ***
+          *
+          *
+ */
+public class Ters_ucgen {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen en üst satırda kaç tane yıldız olacagını giriniz.");
+        int yildiz= scan.nextInt();
+        for(int i=yildiz;i>0;i--){
+            for(int j=i;j<=yildiz;j++){
+                System.out.print(" ");
+            }
+            for(int n=0;n<2*i-1;n++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
