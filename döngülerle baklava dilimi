@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Yildiz_ile_elmas_yapma {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen bir yıldız adedi giriniz.");
+        int yildiz;
+        int sayac=1;
+        yildiz=scan.nextByte();
+        for(int i=0;i<yildiz;i++){
+           for(int j=i+1;j<yildiz;j++){
+               System.out.print(" ");
+           }
+           for(int n=0;n<i+sayac;n++){
+               System.out.print("*");
+           }
+           System.out.println();
+           sayac++;
+
+        }
+        for(int i=yildiz-1;i>0;i--){
+            for(int j=i;j<yildiz;j++){
+                System.out.print(" ");
+            }
+            for(int n=2*i-1;n>0;n--){
+                System.out.print("*");
+            }
+            System.out.println();
+
+        }
+    }
+}
