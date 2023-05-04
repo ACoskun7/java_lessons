@@ -1,0 +1,60 @@
+import java.util.Scanner;
+/*Java ile bir sayının "Palindrom Sayı" olup olmadığını bulan bir program yapıyoruz.
+
+Palindrom Sayı Nedir ?
+Palindromik sayı, iki taraftan okunduğu zaman okunuş yönüyle aynı olan sayılardır.
+
+Örnek: 1, 4, 8, 99, 101, 363, 4004, 9889....*/
+
+public class PolidromSayi {
+    static Scanner scan=new Scanner(System.in);
+
+
+    static void polidromSayi(){
+       System.out.println("lütfen polidrom sayı olup olmadığını kontrol etmek istediğiniz saıyı giriniz.");
+       int sayi;
+       System.out.println("Programımız yanlızca 4 basamaklı sayıları kontrol edebilmektedir.");
+       sayi=scan.nextInt();
+       int binler,yuzler,onlar,birler;
+       binler=sayi/1000;
+       yuzler=(sayi%1000)/100;
+       onlar=((sayi%1000)%100)/10;
+       birler=sayi-(binler*1000+yuzler*100+onlar*10);
+       if(sayi>=10000){
+           System.out.println("Girdiginiz sayı çok büyük olduğundan dolayı işlem yapamıyoruz üzgünüz:(");
+       }
+    else if(sayi>=1000){
+         if(binler==birler && yuzler==onlar){
+             System.out.println("Girdiğiniz sayı bir polidrom sayısıdır.");
+         }
+         else {
+             System.out.println("Girdiğiniz sayı polidrom sayı değildir.");
+         }
+     }
+       else if(sayi>=100){
+           if(yuzler==birler){
+               System.out.println("Girdiğiniz sayı bir polidrom sayısıdır.");
+           }
+           else {
+               System.out.println("Girdiğiniz sayı polidrom sayı değildir.");
+           }
+       }
+      else if(sayi>=10){
+           if(birler==onlar){
+               System.out.println("Girdiğiniz sayı bir polidrom sayısıdır.");
+           }
+           else {
+               System.out.println("Girdiğiniz sayı polidrom sayı değildir.");
+           }
+       }
+      else{
+         System.out.println("Girdiginiz sayı bir polidrom sayısıdır.");
+     }
+
+   }
+    public static void main(String[] args) {
+
+        polidromSayi();
+
+    }
+}
