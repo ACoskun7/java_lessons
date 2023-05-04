@@ -1,0 +1,92 @@
+import java.util.Scanner;
+public class HesapMakinasi {
+    static Scanner scan=new Scanner(System.in);
+    static float sayi1,sayi2;
+    static void toplama(){
+        System.out.println("Lütfen toplayacağınız iki sayıyı giriniz.");
+        sayi1=scan.nextFloat();
+        sayi2=scan.nextFloat();
+        System.out.println("Girdiğiniz sayıların toplamı= "+(sayi1+sayi2));
+
+    }
+    static void cikarma(){
+        System.out.println("Lütfen çıkaracağınız iki sayıyı giriniz.");
+        sayi1=scan.nextFloat();
+        sayi2=scan.nextFloat();
+        System.out.println("Girdiğiniz sayıların çıkarma işlemi sonucu= "+(sayi1-sayi2));
+    }
+    static void carpma(){
+        System.out.println("Lütfen çarpacağınız iki sayıyı giriniz.");
+        sayi1=scan.nextFloat();
+        sayi2=scan.nextFloat();
+        System.out.println("Girdiğiniz sayıların çarpma işlemi sonucu= "+(sayi1*sayi2));
+    }
+    static void bolme(){
+        System.out.println("Lütfen böleceğiniz iki sayıyı giriniz.");
+        sayi1=scan.nextFloat();
+        sayi2=scan.nextFloat();
+        System.out.println("Girdiğiniz sayıların bölme işlemi sonucu= "+(sayi1/sayi2));
+    }
+    static void usluSayi(){
+        System.out.println("Lütfen üssü alınacak sayıyı giriniz.");
+        sayi1=scan.nextFloat();
+        System.out.println("Lütfen kaçıncı dereceden üssü alınacaksa değeri giriniz");
+        int sayi3=scan.nextInt();
+        for(int i=1;i<=sayi3;i++){
+            sayi1*=sayi1;
+        }
+        System.out.println("Girdiğiniz sayının üs  işlemi sonucu= "+sayi1);
+
+    }
+    static void faktoriel(){
+        System.out.println("Lütfen faktöriel hesabı yapılacak sayıyı giriniz.");
+        sayi1=scan.nextFloat();
+        int deger=1;
+        for(int i=1;i<=sayi1;i++){
+            deger*=i;
+        }
+        System.out.println("faktöriel hesap sonucu="+deger);
+        
+    }
+    static void modAlma(){
+        System.out.println("Lütfen mod alma işlemi için iki  sayıyı giriniz.");
+        System.out.println("Gireceğiniz sayılardan ilk sayının ikici sayıya göre modu alınacaktır");
+        sayi1=scan.nextFloat();
+        sayi2=scan.nextFloat();
+        System.out.println("Girdiğiniz sayıların mod alma  işlemi sonucu= "+(sayi1%sayi2));
+
+    }
+    static void dikdortgen(){
+        System.out.println("Lütfen dikdörtgenin alan ve çevre hesabı için kısa ve uzun kenarını giriniz.");
+        sayi1=scan.nextFloat();
+        sayi2=scan.nextFloat();
+        System.out.println("Girdiğiniz dikdörgenin alanı= "+(sayi1*sayi2));
+        System.out.println("Girdiğiniz dikdörgenin çevresi = "+2*(sayi1+sayi2));
+
+    }
+    public static void main(String[] args) {
+
+        System.out.println("Hesap makinemize hoşgeldiniz.");
+        int sayi;
+
+        do {
+            System.out.println("1-toplama işlemi\n2-çıkarma işlemi\n3-çarpma işlemi\n4-bölme işlemi\n5-üslü sayı hesaplama\n6-faktöriel hesaplama\n7-mod alma\n8-dikdötrgen alan ve çevre hesabı\n0-çıkış");
+            System.out.println("Lütfen yapacağınız işlemi belirtilen rakamlarla ifade ediniz.");
+            sayi=scan.nextInt();
+            switch (sayi){
+                case 0:break;
+                case 1:toplama();break;
+                case 2:cikarma();break;
+                case 3:carpma();break;
+                case 4:bolme();break;
+                case 5:usluSayi();break;
+                case 6:faktoriel();break;
+                case 7:modAlma();break;
+                case 8:dikdortgen();break;
+                default:
+                    System.out.println("Girdiğiniz değerde bir işlem yok malesef size yardımcı olamıyoruz:)");
+
+            }
+        }while (sayi!=0);
+    }
+}
