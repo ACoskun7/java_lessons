@@ -1,0 +1,58 @@
+/*Java dilinde kullanıcıdan alınan n değerine göre aşağıdaki kurala uyan döngü kullanmadan bir "Recursive" metot yazın.
+
+Kural : Girilen sayı 0 veya negatif olduğu yere kadar girilen sayıdan 5 rakamını çıkarın. Her çıkarma işlemi sırasında ekrana son değeri yazdırın. Sayı negatif veya 0 olduktan sonra tekrar 5 ekleyin. Yine her ekleme işleminde sayının son değerini ekrana yazdırın.
+
+Senaryolar
+N Sayısı : 16
+Çıktısı : 16 11 6 1 -4 1 6 11 16
+
+
+N Sayısı : 10
+Çıktısı : 10 5 0 5 10
+
+
+N Sayısı : 25
+Çıktısı : 25 20 15 10 5 0 5 10 15 20 25
+
+
+N Sayısı : 5
+Çıktısı : 5 0 5 */
+import java.util.Scanner;
+
+public class RecursiveNornegi {
+   static  void Recursive(int n, int a,int b){
+
+       if(a>0){
+           System.out.print(n+"\t");
+           a--;
+           n-=5;
+           Recursive(n,a,b);
+
+
+       } else if (b>=0) {
+
+           System.out.print(n+"\t");
+           n=5+n;
+           b--;
+
+           Recursive(n,a,b);
+       }
+
+
+   }
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen bir en sayıyı giriniz.");
+        int n=scan.nextInt();
+        int a;
+        if(n%5==0){
+            a=n/5;
+        }
+        else {
+            a=n/5+1;
+        }
+        int b=a;
+        Recursive(n,a,b);
+
+    }
+}
