@@ -1,0 +1,31 @@
+/*Recursive Metotlar ile Üslü Sayı Hesaplama
+Java dilinde, taban ve üs değerleri kullanıcıdan alınan üs alma işlemini "Recursive" metot kullanarak yapan programı yazınız
+*/
+import java.util.Scanner;
+public class UsluSayiHesaplama {
+    static   int value=1;
+    static void recursive(int a,int b){
+
+        if(b==0){
+            System.out.println(value);
+        }
+        else {
+            b--;
+           value*=a;
+           recursive(a,b);
+        }
+
+
+    }
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Üslü sayı hesaplama programımıza hoşgeldiniz.");
+        System.out.println("Lütfen üssü alınacak sayının ilk olarak taban daha sonrada üssünü giriniz.");
+        int taban,us;
+        System.out.print("Taban: ");
+        taban=scan.nextInt();
+        System.out.println("Üs: ");
+        us=scan.nextInt();
+        recursive(taban,us);
+    }
+}
