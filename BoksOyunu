@@ -1,0 +1,78 @@
+
+
+class Fighter {
+    String name;
+    int damage;
+    int health;
+    int weight;
+    Fighter(String name,int damage,int health,int weight){
+        this.name=name;
+        this.damage=damage;
+        this.health=health;
+        this.weight=weight;
+    }
+    int hit(Fighter feo){
+        System.out.println(this.name +" => "+ feo.name + " "+this.damage + " hasar vurdu.");
+       if(feo.health-this.damage<0){
+           return 0;
+       }
+        return feo.health-this.damage;
+    }
+}
+class Match{
+    Fighter f1;
+    Fighter f2;
+    int minweight;
+    int maxweight;
+    Match(Fighter f1,Fighter f2, int minweight,int maxweight){
+        this.f1=f1;
+        this.f2=f2;
+        this.maxweight=maxweight;
+        this.minweight=minweight;
+
+    }
+    void  run(){
+        if(isCheck()){
+            while (this.f1.health>0 && this.f2.health>0){
+                System.out.println("********YENİ ROUND*********");
+               this.f2.health=this.f1.hit(f2);
+               if(isWin())
+                   break;
+                this.f1.health=this.f2.hit(f1);
+                if(isWin())
+                    break;
+                System.out.println(this.f1.name + "  sağlık : "+this.f1.health);
+
+                System.out.println(this.f2.name + "  sağlık : "+this.f2.health);
+            }
+        }else{
+            System.out.println("sporcuların sikletleri uymuyor.");
+        }
+    }
+    boolean isCheck(){
+        return (this.f1.weight>=minweight&& this.f1.weight<=maxweight)&&(this.f2.weight>=minweight&&this.f2.weight<=maxweight);
+    }
+    boolean isWin(){
+        if(this.f1.health==0) {
+            System.out.println(this.f2.name + "  kazandı .");
+            return true;
+
+        }
+        if(this.f2.health==0){
+            System.out.println(this.f1.name + "  kazandı.");
+            return true;
+        }
+        return false;
+    }
+}
+
+
+public class BoksOyunu {
+    public static void main(String[] args) {
+        Fighter f1=new Fighter("ahmet",10,120,100 );
+        Fighter f2=new Fighter("halil",20,85,85);
+        Match match=new Match(f1,f2,80,101);
+        match.run();
+
+    }
+}
