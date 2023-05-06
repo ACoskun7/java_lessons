@@ -1,0 +1,75 @@
+class Employee{
+    String name;
+    int salary;
+    int workHours;
+    int hireYear;
+    int vergi;
+    int bonus;
+    int maasArtisi;
+
+    Employee(String name,int salary ,int workHours,int hireYear){
+        this.name=name;
+        this.salary=salary;
+                this.hireYear=hireYear;
+                this.workHours=workHours;
+
+    }
+    public void tax(){
+        if(this.salary<1000){
+            vergi =0;
+        }else{
+           vergi =(salary*3/100);
+        }
+
+    }
+    public void bonuslar(){
+        if(workHours>40){
+
+           bonus=(workHours-40)*30;
+
+        }else{
+            bonus=0;
+        }
+    }
+    public void raiseSalary(){
+        int thisYear=2021;
+        if((thisYear-hireYear)<10){
+           maasArtisi=(this.salary*5/100);
+        } else if ((thisYear-hireYear)>9 &&(thisYear-hireYear)<20) {
+
+            maasArtisi=(this.salary*10/100);
+        } else if ((thisYear-hireYear)>19) {
+           maasArtisi=(this.salary*15/100);
+        }
+
+    }
+    public String toString(){
+        System.out.println("Adı : "+this.name);
+        System.out.println("Maaşı : "+salary);
+        System.out.println("Çalışma saati "+ this.workHours);
+        System.out.println("Başlangıç yılı : "+this.hireYear);
+        if(this.salary>1000){
+            System.out.println("Vergi : "+vergi);
+        }else{
+            System.out.println("Vergi : 0");
+        }
+        System.out.println("Bonus  : "+bonus);
+        System.out.println("Maaş artışı: "+maasArtisi);
+        System.out.println("vergi ve Bonuslar ile birlikter maaş : "+(this.salary+(bonus-vergi)));
+        System.out.println("Toplam maaş: "+ (this.salary+maasArtisi));
+
+        return null;
+    }
+}
+
+public class FabrikaCalisan {
+    public static void main(String[] args) {
+        Employee e1=new Employee("kemal",2000,45,1985);
+        e1.tax();
+        e1.bonuslar();
+        e1.raiseSalary();
+        e1.toString();
+
+
+    }
+}
