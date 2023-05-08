@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class MatrisTranspozu {
+    static  void transpoze(int[][] arr,int col,int row){
+        int array[][]=new int[col][row];
+        for(int i=0;i< arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                array[j][i]=arr[i][j];
+
+            }
+        }
+        System.out.print("\nGirdiğiniz matrisin transpozu: \n");
+        for(int i=0;i< array.length;i++) {
+            for (int j = 0; j < array[0].length; j++) {
+
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Lütfen kaça kaçlık bir matris oluşturacağınızı giriniz.");
+        int row;
+        int col;
+        System.out.print("Satır sayısı :");
+        row=scan.nextInt();
+        System.out.print("Sutün  sayısı :");
+        col=scan.nextInt();
+        int arr[][]=new int[row][col];
+        System.out.println("Lütfen transpozu alınacak olan matrisi giriniz.");
+        for(int i=0;i< arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                System.out.print((i+1) +" .satır "+(j+1)+" sütün elemanı: ");
+                arr[i][j]=scan.nextInt();
+            }
+        }
+        System.out.print("\nGirdiğiniz matris: \n");
+        for(int i=0;i< arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+
+                System.out.print(arr[i][j]+"\t");
+            }
+            System.out.println();
+        }
+
+        transpoze(arr,col,row);
+
+    }
+}
