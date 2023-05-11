@@ -99,6 +99,13 @@ public class MayinTarlasiOyunu2 {
                 dongu++;
             } else if (matrix[satir - 1][sutun - 1] == "*") {
                 System.out.println("Game Over!!");
+                 System.out.println("Bombaların yerleştirilmiş hali: ");
+                for (int i = 0; i < row; i++) {
+                    for (int j = 0; j < col; j++) {
+                        System.out.print(matrix[i][j] + "\t");
+                    }
+                    System.out.println();
+                }
                 break;
             } else {
 
