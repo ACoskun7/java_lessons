@@ -1,0 +1,233 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class MayinTarlasiOyunu2 {
+   static void BombalariYerlestir(int row, int col) { //BU METOT BOMBALARIN YERLEŞTİRİLMİŞ TABLOSUNU GÖSTERİR.
+        Random random = new Random();
+        String[][] matrix = new String[row][col];
+        int bombaSayisi = (row * col) / 4;
+        int bomba;
+
+        int x, y;
+        do {
+            bomba = 0;
+            for (int k = 0; k < bombaSayisi; k++) {
+
+                x = random.nextInt(row);
+                y = random.nextInt(col);
+                matrix[x][y] = "*";
+            }
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    if (matrix[i][j] == "*") {
+                        bomba++;
+                    }
+                }
+
+            }
+
+        } while (bombaSayisi != bomba);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matrix[i][j] != "*") {
+                    matrix[i][j] = "#";
+                }
+            }
+        }
+       /* for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }*/
+        MatrisOlustur(matrix, row, col);
+
+    }
+
+    static void MatrisOlustur(String[][] matrix, int row, int col) {
+        String[][] array = new String[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+
+                array[i][j] = "#";
+
+            }
+        }                  //EKRANA İLK BASIM//
+        for (int k = 1; k <= col; k++) {
+            System.out.print("\t" + k);
+
+        }
+        System.out.println();
+        for (int k = 1; k <= col; k++) {
+            System.out.print("\t---");
+
+        }
+        System.out.println();
+        for (int i = 0; i < row; i++) {
+            System.out.print((i + 1) + "|\t");
+            for (int j = 0; j < col; j++) {
+
+                System.out.print(array[i][j] + "\t");
+
+            }
+            System.out.println();
+        }
+        Karsilastirma(matrix, array, row, col);
+    }
+
+    static void Karsilastirma(String[][] matrix, String[][] array, int row, int col) {
+        Scanner input = new Scanner(System.in);
+        int dongu = (row * col) - ((row * col) / 4);
+        int satir, sutun;
+        int count = 0;
+
+        System.out.println("************ OYUNUMUZA HOŞGELDİNİZ *************");
+        System.out.println("Lütfen satır ve stün numarası giriniz.");
+
+        while (dongu > 0) {
+
+            System.out.print("Satır:  ");
+            satir = input.nextInt();
+            System.out.print("Sütün:  ");
+            sutun = input.nextInt();
+            if ((satir <= 0) || (sutun <= 0)) {
+                System.out.println("Yanlış değer ataması yaptınız.Lütfen tekrar değer giriniz.");
+                dongu++;
+            } else if ((satir > row) || (sutun > col)) {
+                System.out.println("satır veya stun değerinden fazla bir değer girdiniz lütfen tekrar girin");
+                dongu++;
+            } else if (matrix[satir - 1][sutun - 1] == "*") {
+                System.out.println("Game Over!!");
+                break;
+            } else {
+
+                if ((satir - 1 == 0) && (sutun - 1 == 0)) { //1
+                    for (int i = satir - 1; i <= satir; i++) {
+                        for (int j = sutun - 1; j <= sutun; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if ((satir - 1 == 0) && (sutun - 1 == col - 1)) { //2
+                    for (int i = satir - 1; i <= satir; i++) {
+                        for (int j = sutun - 2; j <= sutun - 1; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if (satir - 1 == 0) { //3
+                    for (int i = satir - 1; i <= satir; i++) {
+                        for (int j = sutun - 2; j <= sutun; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if ((satir - 1 == row - 1) && (sutun - 1 == 0)) { //5
+                    for (int i = satir - 2; i <= satir - 1; i++) {
+                        for (int j = sutun - 1; j <= sutun; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if (sutun - 1 == 0) { //4
+                    for (int i = satir - 2; i <= satir; i++) {
+                        for (int j = sutun - 1; j <= sutun; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if ((satir - 1 == row - 1) && (sutun - 1 == col - 1)) { //7
+                    for (int i = satir - 2; i <= satir - 1; i++) {
+                        for (int j = sutun - 2; j <= sutun - 1; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if (satir - 1 == row - 1) {//6
+                    for (int i = satir - 2; i <= satir - 1; i++) {
+                        for (int j = sutun - 2; j <= sutun; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else if (sutun - 1 == col - 1) { //8
+                    for (int i = satir - 2; i <= satir; i++) {
+                        for (int j = sutun - 2; j <= sutun - 1; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+
+                } else { //9
+                    for (int i = satir - 2; i <= satir; i++) {
+                        for (int j = sutun - 2; j <= sutun; j++) {
+                            if (matrix[i][j] == "*") {
+                                count++;
+                            }
+                        }
+                    }
+                    array[satir - 1][sutun - 1] = String.valueOf(count);
+                }
+            }
+            count = 0;
+            System.out.println(dongu);
+            //aşağıya bastırma işlemi yapılacak
+            for (int k = 1; k <= col; k++) {
+                System.out.print("\t" + k);
+
+            }
+            System.out.println();
+            for (int k = 1; k <= col; k++) {
+                System.out.print("\t---");
+
+            }
+            System.out.println();
+            for (int i = 0; i < row; i++) {
+                System.out.print((i + 1) + "|\t");
+                for (int j = 0; j < col; j++) {
+
+                    System.out.print(array[i][j] + "\t");
+
+                }
+                System.out.println();
+            }
+            dongu--;
+            if (dongu == 0) {
+                System.out.println("TEBRİKLER OYUNU KAZANDINIZ.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Lütfen mayın talamızın kare matris boyutunu giriniz.");
+        int row, col;
+        Scanner input = new Scanner(System.in);
+        row = input.nextInt();
+        col = row;
+        BombalariYerlestir(row, col);
+    }
+}
