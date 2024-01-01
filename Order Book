@@ -1,0 +1,68 @@
+import java.util.*;
+public class Book {
+
+    private String name;
+    private int  numPage;
+    public Book(String name,int numPage){
+        this.name=name;
+        this.numPage=numPage;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public int getNumPage(){
+        return numPage;
+    }
+    public void setNumPage(int numPage){
+        this.numPage=numPage;
+    }
+
+
+}
+public class OrderPage implements Comparator<Book> {// compatator un parametre olarak ne verilmesi gerektiği belirtilmeli
+
+    @Override
+    public int compare(Book book1, Book book2) {
+        return Integer.compare(book1.getNumPage(), book2.getNumPage());
+    }
+}
+public class orderNameComparator implements Comparator<Book> { // compatator un parametre olarak ne verilmesi gerektiği belirtilmeli
+    @Override
+    public int compare(Book o1, Book o2) {
+        return o1.getName().compareTo(o2.getName());
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+
+        Set<Book> books=new TreeSet<>(new orderNameComparator());
+
+        books.add(new Book("Yüzüklein Efendisi",400));
+        books.add(new Book("Sineklerin Tanrısı",300));
+        books.add(new Book("İstanbul Hatırası ",530));
+        books.add(new Book("Dil Belası ",250));
+        books.add(new Book("1984",430));
+        books.add(new Book("Adalet",900));
+        System.out.println("Kitap isimlerinin alfabetik sıraya göre sıralanışı:");
+
+        for(Book book:books){
+            System.out.println(book.getName());
+        }
+        Set<Book>books1=new TreeSet<>(new OrderPage());
+
+        books1.addAll(books);
+
+
+        System.out.println("Kitapların sayfa sayılarına göre sıralanışı:");
+        for(Book book:books1){
+            System.out.println(book.getName());
+        }
+
+
+
+    }
+}
